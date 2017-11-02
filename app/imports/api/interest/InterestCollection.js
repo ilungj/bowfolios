@@ -12,7 +12,6 @@ import { Tracker } from 'meteor/tracker';
  * @extends module:Base~BaseCollection
  */
 class InterestCollection extends BaseCollection {
-
   /**
    * Creates the Interest collection.
    */
@@ -108,8 +107,7 @@ class InterestCollection extends BaseCollection {
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);
-    const name = doc.name;
-    const description = doc.description;
+    const { name, description } = doc;
     return { name, description };
   }
 }

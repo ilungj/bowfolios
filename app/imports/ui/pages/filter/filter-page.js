@@ -26,13 +26,15 @@ Template.Filter_Page.helpers({
   },
 
   interests() {
-    return _.map(Interests.findAll(),
-        function makeInterestObject(interest) {
-          return {
-            label: interest.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
-          };
-        });
+    return _.map(
+      Interests.findAll(),
+      function makeInterestObject(interest) {
+        return {
+          label: interest.name,
+          selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
+        };
+      },
+    );
   },
 });
 

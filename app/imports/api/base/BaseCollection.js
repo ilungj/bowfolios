@@ -12,7 +12,6 @@ import { _ } from 'meteor/underscore';
  * classes that inherit from this one.
  */
 class BaseCollection {
-
   /**
    * Superclass constructor for all RadGrad entities.
    * Defines internal fields needed by all entities: _type, _collectionName, _collection, and _schema.
@@ -72,7 +71,7 @@ class BaseCollection {
    */
   findDoc(name) {
     const doc = (
-            this._collection.findOne(name) ||
+      this._collection.findOne(name) ||
             this._collection.findOne({ name }) ||
             this._collection.findOne({ username: name }) ||
             this._collection.findOne({ _id: name }));
@@ -122,7 +121,7 @@ class BaseCollection {
    */
   isDefined(name) {
     return (
-    !!this._collection.findOne(name) ||
+      !!this._collection.findOne(name) ||
     !!this._collection.findOne({ name }) ||
     !!this._collection.findOne({ username: name }) ||
     !!this._collection.findOne({ _id: name }));
@@ -197,7 +196,7 @@ class BaseCollection {
    * Returns an array with a string indicating that this method is not overridden.
    * @returns { array } An array containing a string indicating the use of the default integrity checker.
    */
-  checkIntegrity() {  // eslint-disable-line class-methods-use-this
+  checkIntegrity() { // eslint-disable-line class-methods-use-this
     return ['There is no integrity checker defined for this collection.'];
   }
 
